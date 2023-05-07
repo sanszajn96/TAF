@@ -26,18 +26,19 @@ public abstract class BaseTest {
         ChromeOptions options = new ChromeOptions();
         WebDriverManager.chromedriver().setup();
 
+
+
         options.addArguments(
-                "--headless",
-                "--disable-gpu",
-                "--window-size=1920,1200",
-                "--ignore-certificate-errors",
-                "--disable-extensions",
-                "--no-sandbox",
-                "--disable-dev-shm-usage",
+
                 "--remote-allow-origins=*"
         );
 
         driver = new ChromeDriver(options);
+
+        driver
+                .manage()
+                .window()
+                .maximize();
     }
 
     protected WebDriver getDriver() {

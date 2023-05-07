@@ -18,7 +18,7 @@ public abstract class BaseCreateBoardModal<T> extends PageObject {
     @FindBy(css = ".css-191o3mb")
     WebElement visibilityDropdown;
 
-    @FindBy(css = "#react-select-2-option-0")
+    @FindBy(css = ".css-3ru0ij-option")
     WebElement privateVisibilityOption;
 
     @FindBy(css = "[data-testid='create-board-submit-button']")

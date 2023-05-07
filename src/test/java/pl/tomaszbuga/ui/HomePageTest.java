@@ -7,6 +7,9 @@ import org.testng.annotations.Test;
 import pl.tomaszbuga.ui.framework.BaseTest;
 import pl.tomaszbuga.ui.pom.HomePage;
 
+import static pl.tomaszbuga.ui.TestGroups.REGRESSION;
+import static pl.tomaszbuga.ui.TestGroups.SMOKE;
+
 public class HomePageTest extends BaseTest {
     private HomePage homePage;
 
@@ -16,7 +19,7 @@ public class HomePageTest extends BaseTest {
         homePage.openHomePage();
     }
 
-    @Test(groups = {"Smoke", "Regression"})
+    @Test(groups = {SMOKE, REGRESSION})
     @Description("Verify that user can login with username and password")
     @TmsLink("QA-1")
     public void loginWithCredentialsTest() {
@@ -28,7 +31,7 @@ public class HomePageTest extends BaseTest {
                 .clickLoginButton();
     }
 
-    @Test(groups = {"Regression"})
+    @Test(groups = {REGRESSION})
     @Description("Verify that user can login via Google")
     @TmsLink("QA-2")
     public void loginWithGoogleTest() {

@@ -7,6 +7,8 @@ import pl.tomaszbuga.ui.pom.BoardPage;
 import pl.tomaszbuga.ui.pom.HomePage;
 
 import static org.testng.Assert.assertEquals;
+import static pl.tomaszbuga.ui.TestGroups.REGRESSION;
+import static pl.tomaszbuga.ui.TestGroups.SMOKE;
 
 public class DashboardPageTest extends BaseTest {
     private HomePage homePage;
@@ -17,9 +19,9 @@ public class DashboardPageTest extends BaseTest {
         homePage.openHomePage();
     }
 
-    @Test(groups = {"Smoke", "Regression"})
+    @Test(groups = {SMOKE, REGRESSION})
     public void addNewBoardTest() {
-        String expectedTitle = "TST-A Board";
+        String expectedTitle = "1-on-1";
 
         String boardTitleFromPage = homePage
                 .clickLoginButton()
@@ -36,6 +38,18 @@ public class DashboardPageTest extends BaseTest {
         assertEquals(boardTitleFromPage, expectedTitle);
 
         BoardPage boardPage = new BoardPage(getDriver());
-        boardPage.removeBoard();
+
+        boardPage
+                .getNumberOfLists()
+                .getTitlesOfLists()
+                .checkHowToUseData()
+                .checkBlockerData()
+                .checkDiscussData()
+                .checkFyiData()
+                .checkPausedData()
+                .checkGoalData()
+                /*.openCardPage()*/
+                .removeBoard();
+
     }
 }

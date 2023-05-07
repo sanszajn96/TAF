@@ -16,7 +16,7 @@ import static pl.tomaszbuga.ui.utils.ByLocatorFinder.getByFromWebElement;
 
 @Log4j2
 public abstract class PageObject {
-    private static final Duration TIMEOUT = Duration.ofSeconds(5);
+    private static final Duration TIMEOUT = Duration.ofSeconds(15);
     protected WebDriver driver;
     protected void isPageLoaded(String pageObjectName, WebElement... validationElements) {
         log.info("Check if {} is loaded successfully", pageObjectName);
@@ -117,5 +117,10 @@ public abstract class PageObject {
     protected String getSelectedValueFromDropdown(WebElement dropdown) {
         Select select = new Select(dropdown);
         return select.getFirstSelectedOption().getText();
+    }
+
+    protected boolean checkColorLabel() {
+        List<WebElement> labelColor = driver.findElements(By.tagName("data-color"));
+        return labelColor.size() > 0 && labelColor.get(0).isDisplayed();
     }
 }

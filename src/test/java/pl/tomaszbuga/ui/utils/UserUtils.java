@@ -1,6 +1,6 @@
 package pl.tomaszbuga.ui.utils;
 
 public class UserUtils {
-    public static String username = System.getProperty("email");
-    public static String pass = System.getProperty("password");
+    public static String username = System.getenv("email");
+    public static String pass = System.getenv("password");
 }

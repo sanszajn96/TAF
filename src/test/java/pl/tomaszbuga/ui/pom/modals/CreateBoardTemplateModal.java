@@ -25,7 +25,7 @@ public class CreateBoardTemplateModal extends BaseCreateBoardModal<CreateBoardTe
     @Step("Enter required data and press Create button")
     public BoardPage enterRequiredData() {
         log.info("Enter required data and press Create button");
-        return enterNewBoardTitle("TST-A Board")
+        return enterNewBoardTitle("1-on-1")
                 .expandVisibilityDropdown()
                 .selectPrivateVisiblityOption()
                 .setKeepCards(true)
